@@ -5,19 +5,21 @@ import { LogInDto, SignUpDto } from './auth.dto';
 async function signUp(dto: SignUpDto) {
   const response = await client.post<Response>('/auth/sign-up', dto);
   const data = response.data;
+  const accessToken = data.result;
 
-  console.log(data);
+  client.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
 
-  // return data;
+  return accessToken;
 }
 
 async function logIn(dto: LogInDto) {
   const response = await client.post<Response>('/auth/log-in', dto);
   const data = response.data;
+  const accessToken = data.result;
 
-  console.log(data);
+  client.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
 
-  // return data;
+  return accessToken;
 }
 
 async function logOut() {}

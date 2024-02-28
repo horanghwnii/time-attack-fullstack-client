@@ -35,7 +35,7 @@ async function DealPage(props: { params: { dealId: number } }) {
           </div>
         </div>
         <div className='flex justify-end mt-5 pb-5 border-b'>
-          <InterestButton dealId={deal.id} email={deal.user.email} />
+          <InterestButton deal={deal} email={deal.user.email} />
         </div>
       </div>
     </Page>
