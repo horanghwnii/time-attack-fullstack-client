@@ -1,4 +1,5 @@
 import api from '@/api/index.api';
+import Heading from '@/components/Heading';
 import Page from '@/components/Page';
 import Image from 'next/image';
 import InterestButton from './_components/InterestButton';
@@ -7,13 +8,16 @@ async function DealPage(props: { params: { dealId: number } }) {
   const dealId = props.params.dealId;
   const deal = await api.deals.getDeal(dealId);
 
+  if (!deal) return null;
+
   return (
     <Page>
-      <div className='w-[550px] mt-7'>
+      <Heading label={`${deal.name} 상세 페이지`} />
+      <div className='min-w-[508px] mt-7 mx-auto'>
         <div className='aspect-[3/3] relative mb-4 rounded-md overflow-hidden border-slate-400'>
           <Image
             alt={deal.name}
-            src={deal.imgSrc}
+            src={`http://localhost:5050${deal.imgSrc}`}
             fill
             className='object-cover group-hover:scale-105 transition-transform'
             unoptimized
@@ -33,6 +37,7 @@ async function DealPage(props: { params: { dealId: number } }) {
           <div className='overflow-hidden overflow-ellipsis whitespace-nowrap'>
             {deal.description}
           </div>
+          <div>조회 {deal.views}</div>
         </div>
         <div className='flex justify-end mt-5 pb-5 border-b'>
           <InterestButton deal={deal} email={deal.user.email} />

@@ -23,6 +23,17 @@ async function getDeal(dealId: number) {
   return deal;
 }
 
+async function getUserDealsList() {
+  const result = await client.get('/my/deals');
+  const data = result.data;
+
+  if (!data.success) throw new Error(data.error.message);
+
+  const deals = data.result;
+
+  return deals;
+}
+
 async function updateDeal(dealId: number, dto: UpdateDealDto) {
   const result = await client.put<Response<UpdateDealDto>>(
     `/deals/${dealId}/edit`,
@@ -48,6 +59,12 @@ async function deleteDeal(dealId: number) {
   return deal;
 }
 
-const dealsAPI = { getAllDeals, getDeal, updateDeal, deleteDeal };
+const dealsAPI = {
+  getAllDeals,
+  getDeal,
+  getUserDealsList,
+  updateDeal,
+  deleteDeal,
+};
 
 export default dealsAPI;

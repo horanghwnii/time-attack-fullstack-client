@@ -15,6 +15,8 @@ type AuthContext = {
   setEmail: Dispatch<SetStateAction<string>>;
 };
 
+// const isAccessTokenStored = !!localStorage.getItem('accessToken'); // !! -> boolean으로 바뀜
+
 const initialValue: AuthContext = {
   isLoggedIn: false,
   setIsLoggedIn: () => {},
@@ -36,6 +38,30 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     email,
     setEmail,
   };
+
+  // useEffect(() => {
+  //   let timerId: number | undefined;
+
+  //   if (isLoggedIn) {
+  //     timerId = window.setInterval(async () => {
+  //       const { data: accessToken } = await client.get<string>(
+  //         '/auth/refresh-token'
+  //       );
+
+  //       console.log(accessToken);
+  //       client.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
+  //       localStorage.setItem('accessToken', accessToken);
+  //     }, 1000 * 60 * (30 / 60));
+
+  //     return () => {
+  //       window.clearInterval(timerId);
+  //     };
+  //   } else {
+  //     if (!timerId) return;
+
+  //     window.clearInterval(timerId);
+  //   }
+  // }, [isLoggedIn]);
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }

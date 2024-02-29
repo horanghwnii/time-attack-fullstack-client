@@ -1,3 +1,6 @@
-import { Deal } from '@/types/Deal.type';
-
-export type UpdateDealDto = Deal;
+export type UpdateDealDto = {
+  name: string;
+  description: string;
+  price: number;
+  address: string;
+};

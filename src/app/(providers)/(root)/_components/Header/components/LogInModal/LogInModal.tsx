@@ -1,3 +1,5 @@
+'use client';
+
 import Button from '@/components/Button';
 import Heading from '@/components/Heading';
 import Input from '@/components/Input';
@@ -12,7 +14,7 @@ function LogInModal() {
   const auth = useAuth();
   const modal = useModal();
   const router = useRouter();
-  const { mutateAsync: logIn, isPending } = useMutationLogIn();
+  const { mutateAsync: logIn } = useMutationLogIn();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -37,15 +39,19 @@ function LogInModal() {
       <Heading label='로그인' />
 
       <Input
-        label='이메일'
-        type='email'
+        label=''
+        type='text'
         value={email}
+        placeholder='이메일'
+        className='border-b px-2 py-2 focus:border-b-2 outline-none'
         onChange={(e) => setEmail(e.target.value)}
       />
       <Input
-        label='비밀번호'
+        label=''
         type='password'
         value={password}
+        placeholder='비밀번호'
+        className='border-b px-2 py-2 focus:border-b-2 outline-none'
         onChange={(e) => setPassword(e.target.value)}
       />
 

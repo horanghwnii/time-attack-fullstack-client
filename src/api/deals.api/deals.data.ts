@@ -11,4 +11,5 @@ export type GetDealData = {
   user: {
     email: string;
   };
+  address: string;
 };

@@ -6,4 +6,5 @@ export type Deal = {
   price: number;
   views: number;
   userId: string;
+  address: string;
 };

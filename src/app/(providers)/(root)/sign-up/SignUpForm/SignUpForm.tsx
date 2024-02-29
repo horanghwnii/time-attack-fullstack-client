@@ -7,7 +7,7 @@ import { useAuth } from '@/contexts/auth.context/auth.context';
 import useMutationSignUp from '@/react-query/auth/useMutationSignUp';
 import { useRouter } from 'next/navigation';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function SignUpForm() {
   const auth = useAuth();
@@ -30,32 +30,43 @@ function SignUpForm() {
       await signUp({ email, password });
       auth.setIsLoggedIn(true);
       auth.setEmail(email);
-      router.push('/');
     } catch (e) {
       alert('회원가입에 실패하였습니다.');
     }
   };
+
+  useEffect(() => {
+    if (auth.isLoggedIn) {
+      router.push('/');
+    }
+  }, [auth.isLoggedIn, router]);
 
   return (
     <div className='max-w-96 w-full mx-auto'>
       <Heading label='회원가입' />
 
       <Input
-        label='이메일'
+        label=''
         type='email'
         value={email}
+        placeholder='이메일'
+        className='border-b px-2 py-2 focus:border-b-2 outline-none'
         onChange={(e) => setEmail(e.target.value)}
       />
       <Input
-        label='비밀번호'
+        label=''
         type='password'
         value={password}
+        placeholder='비밀번호'
+        className='border-b px-2 py-2 focus:border-b-2 outline-none'
         onChange={(e) => setPassword(e.target.value)}
       />
       <Input
-        label='비밀번호 확인'
+        label=''
         type='password'
         value={passwordConfirm}
+        placeholder='비밀번호 확인'
+        className='border-b px-2 py-2 focus:border-b-2 outline-none'
         onChange={(e) => setPasswordConfirm(e.target.value)}
       />
 

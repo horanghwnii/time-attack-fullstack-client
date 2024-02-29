@@ -7,7 +7,7 @@ interface ButtonProps extends ComponentProps<'button'> {
 function Button({ label, ...props }: ButtonProps) {
   return (
     <button
-      className='w-full border py-2 rounded bg-black text-white mt-2'
+      className='w-full border py-2 rounded bg-black text-white mt-2 active:translate-y-0.5'
       {...props}
     >
       {label}
