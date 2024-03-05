@@ -14,7 +14,7 @@ function DealCard({ deal }: DealCardProps) {
         <div className='aspect-[3/4] relative mb-4'>
           <Image
             alt={deal.name}
-            src={`http://localhost:5050/${deal.imgSrc}`}
+            src={`https://port-0-time-attack-fullstack-server-dc9c2nltdolcnq.sel5.cloudtype.app/${deal.imgSrc}`}
             fill
             className='object-cover group-hover:scale-105 transition-transform rounded'
             unoptimized

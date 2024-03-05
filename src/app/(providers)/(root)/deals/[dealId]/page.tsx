@@ -17,7 +17,7 @@ async function DealPage(props: { params: { dealId: number } }) {
         <div className='aspect-[3/3] relative mb-4 rounded-md overflow-hidden border-slate-400'>
           <Image
             alt={deal.name}
-            src={`http://localhost:5050${deal.imgSrc}`}
+            src={`https://port-0-time-attack-fullstack-server-dc9c2nltdolcnq.sel5.cloudtype.app${deal.imgSrc}`}
             fill
             className='object-cover group-hover:scale-105 transition-transform'
             unoptimized

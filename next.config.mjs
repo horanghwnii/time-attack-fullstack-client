@@ -1,7 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['localhost', '*'],
+    domains: [
+      'port-0-time-attack-fullstack-server-dc9c2nltdolcnq.sel5.cloudtype.app',
+    ],
   },
   reactStrictMode: false,
 };
