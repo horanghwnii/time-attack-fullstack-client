@@ -12,7 +12,7 @@ import interestAPI from './interest.api/interest.api';
 
 export const client = axios.create({
   baseURL:
-    'https://port-0-time-attack-fullstack-server-dc9c2nltdolcnq.sel5.cloudtype.app:5050',
+    'https://port-0-time-attack-fullstack-server-dc9c2nltdolcnq.sel5.cloudtype.app',
 });
 
 const api = {
