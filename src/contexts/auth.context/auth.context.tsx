@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import {
   Dispatch,
@@ -6,7 +6,7 @@ import {
   createContext,
   useContext,
   useState,
-} from 'react';
+} from "react";
 
 type AuthContext = {
   isLoggedIn: boolean;
@@ -20,7 +20,7 @@ type AuthContext = {
 const initialValue: AuthContext = {
   isLoggedIn: false,
   setIsLoggedIn: () => {},
-  email: '',
+  email: "",
   setEmail: () => {},
 };
 
@@ -30,7 +30,7 @@ export const useAuth = () => useContext(AuthContext);
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState("");
 
   const value = {
     isLoggedIn,

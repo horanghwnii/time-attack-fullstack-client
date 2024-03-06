@@ -1,6 +1,6 @@
-import api from '@/api/index.api';
-import Image from 'next/image';
-import Link from 'next/link';
+import api from "@/api/index.api";
+import Image from "next/image";
+import Link from "next/link";
 
 interface DealCardProps {
   deal: Awaited<ReturnType<typeof api.deals.getAllDeals>>[number];
@@ -14,12 +14,12 @@ function DealCard({ deal }: DealCardProps) {
         <div className='aspect-[3/4] relative mb-4'>
           <Image
             alt={deal.name}
-            src={`https://port-0-time-attack-fullstack-server-dc9c2nltdolcnq.sel5.cloudtype.app/${deal.imgSrc}`}
+            src={`https://port-0-time-attack-fullstack-server-dc9c2nltdolcnq.sel5.cloudtype.app${deal.imgSrc}`}
             fill
             className='object-cover group-hover:scale-105 transition-transform rounded'
             unoptimized
           />
-        </div>{' '}
+        </div>{" "}
         <div>
           <h4 className='text-lg font-bold'>{deal.name}</h4>
           <div className='overflow-hidden overflow-ellipsis whitespace-nowrap'>
