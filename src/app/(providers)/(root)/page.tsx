@@ -1,7 +1,7 @@
-import api from '@/api/index.api';
-import ProductsList from '@/components/DealsList';
-import Heading from '@/components/Heading';
-import Page from '@/components/Page';
+import api from "@/api/index.api";
+import ProductsList from "@/components/DealsList";
+import Heading from "@/components/Heading";
+import Page from "@/components/Page";
 
 async function HomePage() {
   const deals = await api.deals.getAllDeals();
@@ -13,5 +13,7 @@ async function HomePage() {
     </Page>
   );
 }
+
+export const revalidate = 5;
 
 export default HomePage;
