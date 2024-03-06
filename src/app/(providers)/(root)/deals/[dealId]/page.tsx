@@ -1,8 +1,8 @@
-import api from '@/api/index.api';
-import Heading from '@/components/Heading';
-import Page from '@/components/Page';
-import Image from 'next/image';
-import InterestButton from './_components/InterestButton';
+import api from "@/api/index.api";
+import Heading from "@/components/Heading";
+import Page from "@/components/Page";
+import Image from "next/image";
+import InterestButton from "./_components/InterestButton";
 
 async function DealPage(props: { params: { dealId: number } }) {
   const dealId = props.params.dealId;
